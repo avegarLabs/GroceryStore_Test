@@ -49,7 +49,7 @@ public class CheckoutCounter {
 
             switch (product.getType()) {
                 case PER_PIECE:
-                    totalPrice += calculatePriceByPromotion(product, (int) quantityOrWeight);
+                    totalPrice += calculatePriceByPromotion(product, quantityOrWeight);
                     break;
                 case PER_WEIGHT:
                     totalPrice += product.getPrice() * quantityOrWeight;
@@ -60,17 +60,12 @@ public class CheckoutCounter {
     }
 
 
-    private double calculatePriceByPromotion(Product product, int quantity) {
-        double price = product.getPrice() * quantity;
-        switch (product.getPromotion()) {
-            case BUY_ONE_GET_ONE_FREE:
-                price = product.getPrice() * (quantity - (quantity / 2));
-                break;
-            case BUY_TWO_GET_ONE_FREE:
-                price = product.getPrice() * (quantity - (quantity / 3));
-                break;
-        }
-        return price;
+    private double calculatePriceByPromotion(Product product, double quantity) {
+       return  product.getPrice() * product.getPromotion().applyDiscount(quantity);
+    }
+
+    public SaleReceipt generateReceipt() {
+        return new SaleReceipt(new HashMap<>(scannedProducts), calculateTotalPrice());
     }
 }
 
