@@ -49,7 +49,7 @@ public class CheckoutCounter {
 
             switch (product.getType()) {
                 case PER_PIECE:
-                    totalPrice += calculatePriceUsingPromotion(product, (int) quantityOrWeight);
+                    totalPrice += calculatePriceByPromotion(product, (int) quantityOrWeight);
                     break;
                 case PER_WEIGHT:
                     totalPrice += product.getPrice() * quantityOrWeight;
@@ -60,9 +60,8 @@ public class CheckoutCounter {
     }
 
 
-    private double calculatePriceUsingPromotion(Product product, int quantity) {
+    private double calculatePriceByPromotion(Product product, int quantity) {
         double price = product.getPrice() * quantity;
-
         switch (product.getPromotion()) {
             case BUY_ONE_GET_ONE_FREE:
                 price = product.getPrice() * (quantity - (quantity / 2));
