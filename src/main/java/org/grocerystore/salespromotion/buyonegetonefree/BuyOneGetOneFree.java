@@ -1,8 +1,8 @@
 package org.grocerystore.salespromotion.buyonegetonefree;
 
-import org.grocerystore.salespromotion.SalesPromotion;
+import org.grocerystore.salespromotion.SalesPromotionStrategy;
 
-public class BuyOneGetOneFree implements SalesPromotion {
+public class BuyOneGetOneFree implements SalesPromotionStrategy {
     @Override
     public double applyDiscount(double quantity) {
         return  quantity > 1 ?  (quantity - 1): quantity;

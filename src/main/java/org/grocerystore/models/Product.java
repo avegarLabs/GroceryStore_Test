@@ -1,16 +1,16 @@
 package org.grocerystore.models;
 
 import org.grocerystore.enums.TypeOfSale;
-import org.grocerystore.salespromotion.SalesPromotion;
+import org.grocerystore.salespromotion.SalesPromotionStrategy;
 
 public class Product {
         private String code;
         private String name;
         private double price;
         private TypeOfSale type;
-        private SalesPromotion promotion;
+        private SalesPromotionStrategy promotion;
 
-    public Product(String code, String name, double price, TypeOfSale type, SalesPromotion promotion) {
+    public Product(String code, String name, double price, TypeOfSale type, SalesPromotionStrategy promotion) {
         this.code = code;
         this.name = name;
         this.price = price;
@@ -50,11 +50,11 @@ public class Product {
         this.type = type;
     }
 
-    public SalesPromotion getPromotion() {
+    public SalesPromotionStrategy getPromotion() {
         return promotion;
     }
 
-    public void setPromotion(SalesPromotion promotion) {
+    public void setPromotion(SalesPromotionStrategy promotion) {
         this.promotion = promotion;
     }
 }

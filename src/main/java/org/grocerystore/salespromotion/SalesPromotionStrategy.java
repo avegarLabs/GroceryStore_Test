@@ -1,6 +1,6 @@
 package org.grocerystore.salespromotion;
 
-public interface SalesPromotion {
+public interface SalesPromotionStrategy {
     double applyDiscount(double quantityOrWeight);
     String getDescription();
 }

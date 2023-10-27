@@ -1,6 +1,8 @@
 package org.grocerystore;
 
-import org.grocerystore.models.*;
+import org.grocerystore.models.CheckoutCounter;
+import org.grocerystore.models.Product;
+import org.grocerystore.models.SaleReceipt;
 import org.grocerystore.salespromotion.buyonegetonefree.BuyOneGetOneFree;
 import org.grocerystore.salespromotion.nopromotion.NoPromotion;
 
@@ -8,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.grocerystore.enums.TypeOfSale.PER_PIECE;
-import static org.grocerystore.enums.TypeOfSale.PER_WEIGHT;
 
 public class Main {
     public static void main(String[] args) {
